@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css" />
+    <title>Watermark Images</title>
+</head>
+<body>
+    <div id="container" class="container">
+        <div class="flexColumn1">
+            <div class="inputColumn">
+                <h1>Watermark Images</h1>
+
+                <h3>Choose images to watermark</h3>
+                <h6>( Accepts most image types like: PNG, JPG, GIF, WEBP )</h6>
+                <h6>( total size limit is 100MB )</h6>
+                <input type="file" id="upload" multiple accept="image/*">
+
+                <h3>Choose your watermark image</h3>
+                <h6>( PNG files recommended for transparent logos )</h6>
+                <h6>( applies to bottom right corner )</h6>
+                <input type="file" id="watermarkImage" accept="image/png">
+
+                <h3>Enter album folder name</h3>
+                <h6>( optional )</h6>
+                <input type="text" id="albumName" class="folder-name" placeholder="Album Folder Name (Optional)">
+                
+                <h3>Click button to apply watermark</h3>
+                <h6>( Images are saved as a PNG file )</h6>
+                <p>This will generate a zip folder to save as</p>
+                <button onclick="previewImage()">Preview</button>
+                <button onclick="processImages()">Apply Watermark</button>
+                <div>
+                    <progress id="progressBar" value="0" max="100" class="progress"></progress>
+                    <h6>( please wait a few seconds to minutes for processing )</h6>
+                </div>
+            </div>
+        </div>
+        <div class="flexColumn2">
+            <div class="previewColumn">
+                <h2>PREVIEW</h2>
+                <h6>( Preview is only the first image )</h6>
+                <div>
+                    <canvas id="previewCanvas" style="display: none;"></canvas>
+                </div>
+            </div>
+        </div>
+
+        <div id="output"></div>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.7.1/jszip.min.js"></script>
+    <script src="script.js"></script>
+
+</body>
+</html>
